@@ -8,13 +8,15 @@ class Prod
     public $price;
     public $target;
     public $discount;
+    public $type;
 
-    public function __construct(string $name, float $price, string $target, DISCOUNT $discount)
+    public function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type)
     {
         $this->name = $name;
         $this->price = $this->getPrice($price, $discount);
         $this->target = $target;
         $this->discount = $discount;
+        $this->type = $type;
     }
 
     public function getPrice($price, $discount)
@@ -35,9 +37,9 @@ class FoodProd extends Prod
     public $expiration;
     public $ingredients;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, int $energy, string $expiration, array $ingredients)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, int $energy, string $expiration, array $ingredients)
     {
-        parent::__construct($name, $price, $target, $discount);
+        parent::__construct($name, $price, $target, $discount, $type);
 
         $this->energy = $energy;
         $this->expiration = $expiration;
@@ -53,9 +55,9 @@ class ToyProd extends Prod
     public $colors;
     public $brand;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, int $quality, array $colors, string $brand)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, int $quality, array $colors, string $brand)
     {
-        parent::__construct($name, $price, $target, $discount);
+        parent::__construct($name, $price, $target, $discount, $type);
 
         $this->quality = $this->getQuality($quality);
         $this->colors = $colors;
@@ -86,7 +88,12 @@ class LitterProd extends Prod
     public $material;
     public $colors;
 
-    public function __construct(string $material,)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $material, array $colors)
     {
+
+        parent::__construct($name, $price, $target, $discount, $type);
+
+        $this->material = $material;
+        $this->colors = $colors;
     }
 }
