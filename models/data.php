@@ -1,5 +1,8 @@
 <?php
 require_once './models/prod.php';
+require_once './models/food.php';
+require_once './models/toy.php';
+require_once './models/lettiere.php';
 
 // FOOD
 $croccantiniCani = new FoodProd('croccantini Cani', 19.90, 'Cani', new Discount(false, 0), 'food', 'https://shop-cdn-m.mediazs.com/bilder/royal/canin/maxi/adult/crocchette/per/cani/6/400/icon_topseller_1_2022_02_24t122255_148_6.jpg', 5, '20-9-2030', ['carne di manzo', 'cipolla', 'aromi']);
