@@ -9,14 +9,16 @@ class Prod
     public $target;
     public $discount;
     public $type;
+    public $imgUrl;
 
-    public function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type)
+    public function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl)
     {
         $this->name = $name;
         $this->price = $this->getPrice($price, $discount);
         $this->target = $target;
         $this->discount = $discount;
         $this->type = $type;
+        $this->imgUrl = $imgUrl;
     }
 
     public function getPrice($price, $discount)
@@ -29,7 +31,6 @@ class Prod
     }
 }
 
-
 // CLASSE estesa di PRODOTTO = CIBO
 class FoodProd extends Prod
 {
@@ -37,16 +38,15 @@ class FoodProd extends Prod
     public $expiration;
     public $ingredients;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, int $energy, string $expiration, array $ingredients)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $energy, string $expiration, array $ingredients)
     {
-        parent::__construct($name, $price, $target, $discount, $type);
+        parent::__construct($name, $price, $target, $discount, $type, $imgUrl);
 
         $this->energy = $energy;
         $this->expiration = $expiration;
         $this->ingredients = $ingredients;
     }
 }
-
 
 // CLASSE estesa di PRODOTTO = Giocattoli
 class ToyProd extends Prod
@@ -55,9 +55,9 @@ class ToyProd extends Prod
     public $colors;
     public $brand;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, int $quality, array $colors, string $brand)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $quality, array $colors, string $brand)
     {
-        parent::__construct($name, $price, $target, $discount, $type);
+        parent::__construct($name, $price, $target, $discount, $type, $imgUrl);
 
         $this->quality = $this->getQuality($quality);
         $this->colors = $colors;
@@ -88,10 +88,10 @@ class LitterProd extends Prod
     public $material;
     public $colors;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $material, array $colors)
+    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl, string $material, array $colors)
     {
 
-        parent::__construct($name, $price, $target, $discount, $type);
+        parent::__construct($name, $price, $target, $discount, $type, $imgUrl);
 
         $this->material = $material;
         $this->colors = $colors;
