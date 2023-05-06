@@ -95,8 +95,13 @@ require_once './models/data.php';
                                 }
                                 echo '</ul>';
                             } else if ($item->getType() == 'toy') {
-                                $item->setQuality();
-                                echo 'Qualità: ' . $item->getQuality() . '<br>';
+                                try {
+                                    $item->setQuality(2);
+                                    echo 'Qualità: ' . $item->getQuality() . '<br>';
+                                } catch (Exception $ex) {
+                                    echo $ex->getMessage('errore');
+                                };
+
                                 echo '<ul class="colors">';
                                 foreach ($item->getColors() as $color) {
                                 ?>

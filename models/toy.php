@@ -16,11 +16,11 @@ class ToyProd extends Prod
         $this->brand = $brand;
     }
 
-    public function setQuality()
+    public function setQuality($quality)
     {
 
-        if ($this->quality >= 1 && $this->quality <= 3) {
-            $this->quality = $this->quality;
+        if ($quality >= 1 && $quality <= 3) {
+            $this->quality = $quality;
         } else {
             throw new Exception('La qualità deve essere rappresentata da un numero intero compreso tra 1 e 3');
         }
