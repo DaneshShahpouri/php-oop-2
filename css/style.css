@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+.btn {
+    padding: .6em;
+    background: rgb(69, 118, 224);
+    color: white;
+    border-radius: 10px;
+    margin-top: 2em;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgb(28, 95, 240);
+}
+
 
 .bg {
 
@@ -66,6 +80,7 @@
     margin: auto;
     overflow: hidden;
     position: relative;
+
 }
 
 .container .card .img-wrapper>img {
@@ -76,30 +91,38 @@
     opacity: .9;
 }
 
-
-
-.container .card .img-wrapper>.fa-solid {
+.container .card .img-wrapper>i {
     position: absolute;
-    bottom: 1.5em;
-    left: -2.5em;
+    bottom: .5em;
+    right: .2em;
 
     font-size: 1.2em;
     padding: .5em;
     border-radius: 50%;
     color: white;
+}
 
+.container .card .img-wrapper>.fa-cat {
+    background-color: rgb(113, 195, 20);
+}
+
+.container .card .img-wrapper>.fa-dog {
+    background-color: rgb(8, 85, 201);
 }
 
 .container .card .info-wrapper {
-    width: 100%;
-
+    height: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
 }
 
 .container .card .info-wrapper .topside {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -108,11 +131,11 @@
     text-transform: uppercase;
 }
 
-
-.container .card .info-wrapper .topside .target>.fa-cat {
-    background-color: rgb(113, 195, 20);
+.container .card .info-wrapper .info .ingredienti,
+.container .card .info-wrapper .info .colors {
+    padding-left: 2em;
 }
 
-.container .card .info-wrapper .topside .target>.fa-dog {
-    background-color: rgb(8, 85, 201);
+.container .card .info-wrapper .info {
+    width: 90%;
 }

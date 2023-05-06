@@ -78,23 +78,47 @@ require_once './models/data.php';
                                 echo  $item->getDiscount()->getPrice()
 
 
-                                ?></span>
+                                ?>
+                            </span>
+                        </div>
 
-
+                        <div class="info">
                             <?php
                             if ($item->getType() == 'food') {
+                                echo 'Energia: ' . $item->getEnergy() . '<br>';
+                                echo 'Scadenza: ' . $item->getExpiration() . '<br>';
+                                echo '<ul class="ingredienti">';
+                                foreach ($item->getIngredients() as $Ingr) {
+                            ?>
+                                    <li><?php echo $Ingr ?></li>
+                                <?php
+                                }
+                                echo '</ul>';
+                            } else if ($item->getType() == 'toy') {
+                                $item->setQuality();
+                                echo 'Qualità: ' . $item->getQuality() . '<br>';
+                                echo '<ul class="colors">';
+                                foreach ($item->getColors() as $color) {
+                                ?>
+                                    <li><?php echo $color ?></li>
+                                <?php
+                                }
+                                echo '</ul>';
+                                echo 'Marca: ' . $item->getBrand() . '<br>';
+                            } else {
+                                echo  'Materiali: ' . $item->material . '<br>';
+                                echo '<ul class="colors">';
+                                foreach ($item->colors as $color) {
+                                ?>
+                                    <li><?php echo $color ?></li>
+                            <?php
+                                }
+                                echo '</ul>';
+                            }
                             ?>
 
-                            <?php
-                            } else if ($item->getType() == 'toy') {
-                            ?> <?php
-                            } else if ($item->getType() == 'litter') {
-                                ?> <?php
-                                } else {
-                                    ?> <?php
-                                    }
-                                        ?>
                         </div>
+                        <button class="btn btn-primary">Acquista</button>
 
                     </div>
                 </div>
