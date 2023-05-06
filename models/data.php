@@ -12,14 +12,18 @@ $scatolettaLow = new FoodProd('scatoletta di pesce - economica', 'Gatti', new Di
 
 
 // TOY
-$ball = new ToyProd('Palla - cani', 'Cani', new Discount(9.99, true, 20), 'toy', 'https://i.etsystatic.com/16175628/r/il/1be8d0/2097589535/il_1588xN.2097589535_eveb.jpg', 2, ['white', 'red'], 'Petologo');
-$ballCat = new ToyProd('Palla Rossa', 'Gatti', new Discount(5.99, true, 15), 'toy', 'https://shop-cdn-m.mediazs.com/bilder/palle/matte/trixie/1/400/19594_PLA_Trixie_Noppenbaelle__4_Stueck_1.jpg', 3, ['red'], 'Petologo');
-$billionair = new ToyProd('Il Milionario - per Gatti', 'Gatti', new Discount(5.99, true, 15), 'toy', 'https://m.media-amazon.com/images/I/71q3fbxu5FL.jpg', 3, ['blue'], 'PETtutto Questo Tempo');
+$ball = new ToyProd('Palla - cani', 'Cani', new Discount(9.99, true, 20), 'toy', 'https://i.etsystatic.com/16175628/r/il/1be8d0/2097589535/il_1588xN.2097589535_eveb.jpg', 2, 'Petologo');
+$ball->setColors(['blue', 'green']);
+$ballCat = new ToyProd('Palla Rossa', 'Gatti', new Discount(5.99, true, 15), 'toy', 'https://shop-cdn-m.mediazs.com/bilder/palle/matte/trixie/1/400/19594_PLA_Trixie_Noppenbaelle__4_Stueck_1.jpg', 3, 'Petologo');
+$ballCat->setColors(['red']);
+$billionair = new ToyProd('Il Milionario - per Gatti', 'Gatti', new Discount(5.99, true, 15), 'toy', 'https://m.media-amazon.com/images/I/71q3fbxu5FL.jpg', 3, 'PETtutto Questo Tempo');
+$billionair->setColors(['green']);
 
 
 //LITTERS
 $small_litter = new LitterProd('Lettiera piccola', 'Gatti', new Discount(49.99, true, 40), 'litter', 'https://ss-pics.s3.eu-west-1.amazonaws.com/files/1945802/large-ferplast_ariel_11.jpg?1625845419', 'plastica', ['blu']);
+$small_litter->setColors(['blue']);
 $small_sit = new LitterProd('Cuccia', 'Cani', new Discount(129.99, true, 10), 'litter', 'https://shop-cdn-m.mediazs.com/bilder/cuccia/per/cani/spike/classic/1/800/icon_topseller_1_56__1.jpg', 'legno', ['marrone']);
-
+$small_sit->setColors(['red', 'brown', 'white']);
 
 $dataProd = [$croccantiniCani, $croccantiniGatti, $scatoletta,  $ball, $scatolettaLow, $ballCat, $billionair,  $small_litter, $small_sit];

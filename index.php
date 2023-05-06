@@ -113,7 +113,7 @@ require_once './models/data.php';
                             } else {
                                 echo  'Materiali: ' . $item->material . '<br>';
                                 echo '<ul class="colors">';
-                                foreach ($item->colors as $color) {
+                                foreach ($item->getColors() as $color) {
                                 ?>
                                     <li><?php echo $color ?></li>
                             <?php

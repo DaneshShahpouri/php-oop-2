@@ -1,18 +1,18 @@
 <?php
+require_once './Traits/colors.php';
 
 // CLASSE estesa di PRODOTTO = Giocattoli
 class ToyProd extends Prod
 {
+    use colors;
     protected $quality;
-    protected $colors;
     protected $brand;
 
-    function __construct(string $name, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $quality, array $colors, string $brand)
+    function __construct(string $name, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $quality, string $brand)
     {
         parent::__construct($name, $target, $discount, $type, $imgUrl);
 
         $this->quality = $quality;
-        $this->colors = $colors;
         $this->brand = $brand;
     }
 
