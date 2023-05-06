@@ -1,8 +1,22 @@
 <?php
 class Discount
 {
-    private $isDiscount;
-    private $discount;
+    protected $price;
+    protected $isDiscount;
+    protected $discount;
+
+    public function __construct(float $price, bool $isDiscount, int $discount)
+    {
+        $this->price = $price;
+        $this->isDiscount = $isDiscount;
+        $this->discount = $discount;
+    }
+
+
+    public function getPrice()
+    {
+        return number_format((float)$this->price, 2, '.', '') . ' euro';
+    }
 
     public function getDiscount()
     {
@@ -14,9 +28,10 @@ class Discount
         return $this->isDiscount;
     }
 
-    public function __construct(bool $isDiscount, int $discount)
+    public function setPrice()
     {
-        $this->isDiscount = $isDiscount;
-        $this->discount = $discount;
+        if ($this->isDiscount) {
+            $this->price -= ($this->price * $this->discount / 100);
+        }
     }
 }

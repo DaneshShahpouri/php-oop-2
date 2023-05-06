@@ -26,21 +26,21 @@ require_once './models/data.php';
             ?>
 
                 <div class="card">
-                    <div class="banner-top<?php echo ' ' . $item->type ?>">
+                    <div class="banner-top<?php echo ' ' . $item->getType() ?>">
                         <?php
-                        if ($item->type == 'food') {
+                        if ($item->getType() == 'food') {
                         ?>
 
                             <h5 class="banner-title">FOOD</h5>
 
                         <?php
-                        } else if ($item->type == 'toy') {
+                        } else if ($item->getType() == 'toy') {
                         ?>
 
                             <h5 class="banner-title">TOY</h5>
 
                         <?php
-                        } else if ($item->type == 'litter') {
+                        } else if ($item->getType() == 'litter') {
                         ?>
 
                             <h5 class="banner-title">LITTER</h5>
@@ -48,36 +48,47 @@ require_once './models/data.php';
                         <?php
                         } else {
                         ?> <?php
-                            }
-                                ?>
+                        }
+                            ?>
                     </div>
                     <div class="img-wrapper">
-                        <img src="<?php echo $item->imgUrl ?>" alt="Immagine descrittiva">
+                        <img src="<?php echo $item->getImgUrl() ?>" alt="Immagine descrittiva">
+
+                        <?php
+                        if ($item->getTarget() == 'Gatti') {
+                        ?>
+                            <i class="fa-solid fa-cat"></i>
+                        <?php
+                        } else {
+                        ?>
+                            <i class="fa-solid fa-dog"></i>
+                        <?php
+                        }
+                        ?>
+
                     </div>
 
                     <div class="info-wrapper">
                         <div class="topside">
-                            <h3 class="title"><?php echo $item->name ?></h3>
-                            <div class="target">
+                            <h3 class="title"><?php echo $item->getName() ?></h3>
+                            <span class="price">
                                 <?php
-                                if ($item->target == 'Gatti') {
-                                ?>
-                                    <i class="fa-solid fa-cat"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="fa-solid fa-dog"></i>
-                                <?php
-                                }
-                                ?>
-                            </div>
+
+                                $item->getDiscount()->setPrice();
+                                echo  $item->getDiscount()->getPrice()
+
+
+                                ?></span>
+
 
                             <?php
-                            if ($item->type == 'food') {
+                            if ($item->getType() == 'food') {
+                            ?>
+
+                            <?php
+                            } else if ($item->getType() == 'toy') {
                             ?> <?php
-                            } else if ($item->type == 'toy') {
-                                ?> <?php
-                            } else if ($item->type == 'litter') {
+                            } else if ($item->getType() == 'litter') {
                                 ?> <?php
                                 } else {
                                     ?> <?php

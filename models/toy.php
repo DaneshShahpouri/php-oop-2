@@ -4,32 +4,25 @@
 class ToyProd extends Prod
 {
     protected $quality;
-    public $colors;
-    public $brand;
+    protected $colors;
+    protected $brand;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $quality, array $colors, string $brand)
+    function __construct(string $name, string $target, DISCOUNT $discount, string $type, string $imgUrl, int $quality, array $colors, string $brand)
     {
-        parent::__construct($name, $price, $target, $discount, $type, $imgUrl);
+        parent::__construct($name, $target, $discount, $type, $imgUrl);
 
-        $this->quality = $this->getQuality($quality);
+        $this->quality = $this->setQuality($quality);
         $this->colors = $colors;
         $this->brand = $brand;
     }
 
-    public function getQuality($quality)
+    public function setQuality($quality)
     {
 
-        if ($quality > 0 && $quality < 4) {
-
-            if ($quality == 0) {
-                return 'scarsa';
-            } else if ($quality == 1 || $quality == 2) {
-                return 'media';
-            } else {
-                return 'top';
-            }
+        if ($quality >= 1 && $quality <= 3) {
+            $this->quality = $quality;
         } else {
-            return 'dato non corretto';
+            throw new Exception('La qualità deve essere rappresentata da un numero intero compreso tra 1 e 3');
         }
     }
 }

@@ -65,6 +65,7 @@
     aspect-ratio: 1/1.4;
     margin: auto;
     overflow: hidden;
+    position: relative;
 }
 
 .container .card .img-wrapper>img {
@@ -73,6 +74,20 @@
     object-fit: cover;
     object-position: center;
     opacity: .9;
+}
+
+
+
+.container .card .img-wrapper>.fa-solid {
+    position: absolute;
+    bottom: 1.5em;
+    left: -2.5em;
+
+    font-size: 1.2em;
+    padding: .5em;
+    border-radius: 50%;
+    color: white;
+
 }
 
 .container .card .info-wrapper {
@@ -93,24 +108,6 @@
     text-transform: uppercase;
 }
 
-.container .card .info-wrapper .topside .target {
-    position: relative;
-    right: 0;
-    top: 0;
-    width: 1px;
-}
-
-.container .card .info-wrapper .topside .target>i {
-    position: absolute;
-    bottom: 1.5em;
-    left: -2.5em;
-
-    font-size: 1.2em;
-    padding: .5em;
-    border-radius: 50%;
-    color: white;
-
-}
 
 .container .card .info-wrapper .topside .target>.fa-cat {
     background-color: rgb(113, 195, 20);

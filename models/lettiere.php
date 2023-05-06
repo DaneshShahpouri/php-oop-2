@@ -6,10 +6,10 @@ class LitterProd extends Prod
     public $material;
     public $colors;
 
-    function __construct(string $name, float $price, string $target, DISCOUNT $discount, string $type, string $imgUrl, string $material, array $colors)
+    function __construct(string $name, string $target, DISCOUNT $discount, string $type, string $imgUrl, string $material, array $colors)
     {
 
-        parent::__construct($name, $price, $target, $discount, $type, $imgUrl);
+        parent::__construct($name, $target, $discount, $type, $imgUrl);
 
         $this->material = $material;
         $this->colors = $colors;
